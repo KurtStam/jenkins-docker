@@ -4,6 +4,8 @@
 # add lots of error handling.  If this script fails it's hard to know why the pods keeps restarting
 # ***** IMPORTANT *****
 
+chmod 700 -R /home/jenkins/.ssh-git
+
 # This is temporary and should be moved into a preStart hook when available, copying
 # job configs to /usr/share/jenkins/ref/jobs and letting jenkins create them
 # and avoid the reload below
@@ -42,7 +44,7 @@ if [[ -d "/root/repositoryscripts/src" && -d "/root/repositoryscripts/vars" ]]; 
   git push origin master
 
   rm -rf /root/workflowLibs
-  rm -rf /root/repositoryscripts
+  #rm -rf /root/repositoryscripts
 
 fi
 
